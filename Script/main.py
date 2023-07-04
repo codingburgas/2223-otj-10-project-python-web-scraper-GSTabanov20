@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 
 # Display menu
 def display_menu():
+    # Print the menu options
     print('╔══════════════════════════════════════╗')
     print('║                 Menu                 ║')
     print('╠══════════════════════════════════════╣')
@@ -10,12 +11,14 @@ def display_menu():
     print('║ 2. Trending Cryptocurrencies         ║')
     print('║ 3. Top Gainers                       ║')
     print('║ 4. Top Losers                        ║')
+    print('║ 5. Exit                              ║')
     print('╚══════════════════════════════════════╝')
     choice = input('Enter your choice: ')
     print()
     
     if choice == '1':
         counter = 1
+        # Print popular cryptocurrencies with their prices and volumes
         for i in range(0, 10):
             print(f'{cryptocurrency_names[i]} #{counter}')
             print(f'Price: {prices[i]}')
@@ -27,20 +30,23 @@ def display_menu():
         print('1. Go back to menu')
         print('2. Exit')
         choice = input('Enter your choice: ')
-
+        print()
+        
         if choice == '1':
             display_menu()
         elif choice == '2':
             exit()
         else:
             print('Invalid choice.')
-            exit()
-    
+            display_menu()
+
     elif choice == '2':
+        # Inform the user that this option is under development
         print('This option is currently under development. Please check back later.')
         print('1. Go back to menu')
         print('2. Exit')
         choice = input('Enter your choice: ')
+        print()
 
         if choice == '1':
             display_menu()
@@ -48,38 +54,47 @@ def display_menu():
             exit()
         else:
             print('Invalid choice.')
-            exit()
+            display_menu()
     elif choice == '3':
+        # Inform the user that this option is under development
         print('This option is currently under development. Please check back later.')
         print('1. Go back to menu')
         print('2. Exit')
         choice = input('Enter your choice: ')
-
+        print()
+        
         if choice == '1':
             display_menu()
         elif choice == '2':
             exit()
         else:
             print('Invalid choice.')
-            exit()
+            display_menu()
     elif choice == '4':
+        # Inform the user that this option is under development
         print('This option is currently under development. Please check back later.')
         print('1. Go back to menu')
         print('2. Exit')
         choice = input('Enter your choice: ')
+        print()
 
         if choice == '1':
             display_menu()
         elif choice == '2':
             exit()
         else:
-            print('Invalid choice.')
-            exit()
+            print('Invalid choice. Please try again.')
+            display_menu()
+    elif choice == '5':
+        # Exit the program
+        exit()
     else:
-        print('Invalid choice. Please try again.')
+        # Handle invalid choice
+        print('Invalid choice.')
         print()
         display_menu()
 
+# Perform web scraping
 url = 'https://coinmarketcap.com/'
 response = requests.get(url)
 soup = BeautifulSoup(response.content, 'html.parser')
