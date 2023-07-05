@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 
@@ -17,14 +18,12 @@ def display_menu():
     print()
     
     if choice == '1':
-        counter = 1
         # Print popular cryptocurrencies with their prices and volumes
         for i in range(0, 10):
-            print(f'{cryptocurrency_names[i]} #{counter}')
+            print(f'{cryptocurrency_names[i]} #{i + 1}')
             print(f'Price: {prices[i]}')
             print(f'Volume (24h): {volumes[i]}')
             print('---------------------------')
-            counter += 1
         print()
             
         print('1. Go back to menu')
@@ -33,11 +32,14 @@ def display_menu():
         print()
         
         if choice == '1':
+            os.system('cls')
             display_menu()
         elif choice == '2':
             exit()
         else:
+            os.system('cls')
             print('Invalid choice.')
+            print()
             display_menu()
 
     elif choice == '2':
@@ -49,11 +51,14 @@ def display_menu():
         print()
 
         if choice == '1':
+            os.system('cls')
             display_menu()
         elif choice == '2':
             exit()
         else:
+            os.system('cls')
             print('Invalid choice.')
+            print()
             display_menu()
     elif choice == '3':
         # Inform the user that this option is under development
@@ -64,11 +69,14 @@ def display_menu():
         print()
         
         if choice == '1':
+            os.system('cls')
             display_menu()
         elif choice == '2':
             exit()
         else:
+            os.system('cls')
             print('Invalid choice.')
+            print()
             display_menu()
     elif choice == '4':
         # Inform the user that this option is under development
@@ -79,17 +87,21 @@ def display_menu():
         print()
 
         if choice == '1':
+            os.system('cls')
             display_menu()
         elif choice == '2':
             exit()
         else:
+            os.system('cls')
             print('Invalid choice. Please try again.')
+            print()
             display_menu()
     elif choice == '5':
         # Exit the program
         exit()
     else:
         # Handle invalid choice
+        os.system('cls')
         print('Invalid choice.')
         print()
         display_menu()
